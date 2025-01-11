@@ -1,14 +1,14 @@
 import { SnakeNamingStrategy } from 'typeorm-naming-strategies';
 import AppConfig from './app.config';
 import { DataSource } from 'typeorm';
-import { PostgresConnectionOptions } from 'typeorm/driver/postgres/PostgresConnectionOptions';
+import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
 
 const { databaseOptions } = new AppConfig().build();
 
-export const ormConfig: PostgresConnectionOptions = {
+export const ormConfig: MysqlConnectionOptions = {
   username: databaseOptions.user,
   password: databaseOptions.password,
-  type: 'postgres',
+  type: 'mysql',
   port: databaseOptions.dbPort,
   host: databaseOptions.endpoint,
   logging: true,
